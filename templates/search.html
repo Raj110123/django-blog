@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content  %}
+    <h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Search Item : {{keyword}}</h3>
+  
+    {% if blogs %}
+  
+    {% for i in blogs %}
+  
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-white" style="background-image: url({{ post.featured_image.url }});background-blend-mode: overlay;background-size:cover;">
+    <div class="col-md-8 px-0">
+      <h1 class="display-4 font-italic"><a href="{% url 'blogs' i.slug %}" class="text-dark">{{ i.title }}</a></h1>
+<p class="lead my-3 text-dark">{{ i.short_description }}</p>
+      <p class="lead mb-0"><a href="#" class="text-dark font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+   
+{% endfor %}
+
+{% else %} <p>no posts available</p>
+
+{% endif %}
+
+
+
+
+
+</div>
+
+{% endblock %}
